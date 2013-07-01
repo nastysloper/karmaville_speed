@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
     User.order("karma_points_sum DESC")
   end
 
+  def self.page(page_num)
+    User.limit(50).offset((page_num-1) * 50)
+
+  end  
+
   def total_karma
     self.karma_points.sum(:value)
   end
@@ -32,4 +37,6 @@ class User < ActiveRecord::Base
   def sum_karma
     self.update_attribute(:karma_points_sum, self.total_karma) 
   end
+
+
 end

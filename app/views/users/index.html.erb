@@ -10,3 +10,17 @@
     <%= render 'user_row', :user => user %>
   <% end %>
 </table>
+
+<div class="pagination">
+  <ul>
+    <% page = params[:page].to_i %>
+    <% increment = page/5  %>
+    <li class= 'disabled'><a href="?page=<%= (page) -1 %>">Prev</a></li>
+    <li class='disabled'><a href="?page=<%= increment*5 + 1 %>"><%= increment*5 + 1%></a></li>
+    <li><a href="?page=<%= increment*5 + 2 %>"><%= increment*5 + 2%></a></li>
+    <li><a href="?page=<%= increment*5 + 3 %>"><%= increment*5 + 3%></a></li>
+    <li><a href="?page=<%= increment*5 + 4 %>"><%= increment*5 + 4%></a></li>
+    <li><a href="?page=<%= increment*5 + 5 %>"><%= increment*5 + 5%></a></li>
+    <li><a href="?page=<%= (page) + 1 %>">Next</a></li>
+  </ul>
+</div>
